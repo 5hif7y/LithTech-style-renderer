@@ -16,6 +16,12 @@ implemented by each backend.
 This is not intended to be a full engine, but a technical exploration of modular
 renderer design and backend interchangeability.
 
+## Architecture diagram
+
+<p align="center">
+  <img src="./assets/architecture-graph.png" alt="Renderer Architecture Diagram" >
+</p>
+
 
 ## Project files structure
 

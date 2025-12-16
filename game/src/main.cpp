@@ -1,4 +1,5 @@
 #include "IRenderer.h"
+#define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>  // Necesario para SDL_Event y SDL_QUIT
 #include "DemoScene.h"
 #include <iostream>
@@ -8,7 +9,11 @@ IRenderer* Engine_GetRenderer();
 
 int main()
 {
+    #if _WIN32
+    if (!Engine_LoadRenderer("./OGL4REN.dll"))
+    #else
     if (!Engine_LoadRenderer("./libOGL4REN.so"))
+    #endif
     {
         std::cout << "No pude cargar el renderer\n";
         return 1;

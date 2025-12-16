@@ -7,5 +7,7 @@ target_include_directories(engine PUBLIC
 )
 
 # Required in Linux for dlopen/dlsym
+if(UNIX)
 target_link_libraries(engine PRIVATE dl)
+endif()
 

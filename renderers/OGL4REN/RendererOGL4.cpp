@@ -126,6 +126,14 @@ void RendererOGL4::DrawQuad(float x, float y, float w, float h, float r, float g
 }
 
 
+//extern "C" IRenderer* CreateRenderer() { return new RendererOGL4(); }
+//extern "C" void DestroyRenderer(IRenderer* r) { delete r; }
+
+#ifdef _WIN32
+extern "C" __declspec(dllexport) IRenderer* CreateRenderer() { return new RendererOGL4(); }
+extern "C" __declspec(dllexport) void DestroyRenderer(IRenderer* r) { delete r; }
+#else
 extern "C" IRenderer* CreateRenderer() { return new RendererOGL4(); }
 extern "C" void DestroyRenderer(IRenderer* r) { delete r; }
+#endif
 

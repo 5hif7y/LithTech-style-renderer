@@ -61,7 +61,9 @@ renderer design and backend interchangeability.
 ```
 
 
-## Build and run (Linux, Makefile generator)
+## Build and run
+
+**Linux, Makefile generator**:
 
 ```sh
 mkdir build && cd build && cmake ..
@@ -69,6 +71,22 @@ make && cd game
 ./game
 ```
 
+**Windows, MSVC solution generator**:
+
+```sh
+mkdir build && cd build && cmake ..
+msbuild Modular2DEngine.sln /p:Configuration=Release /p:Platform=x64
+cd game
+game.exe
+```
+**Windows, MSVC solution generator** with manual SDL2-dev package files path:
+
+```sh
+cmake .. -DSDL2_DIR=C:\SDL2-2.32.10\cmake
+msbuild Modular2DEngine.sln /p:Configuration=Release /p:Platform=x64 /p:AdditionalIncludeDirectories="C:\SDL2-2.32.10\include"
+cd game
+game.exe
+```
 
 ## TODO
 

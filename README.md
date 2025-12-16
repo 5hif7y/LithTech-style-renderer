@@ -87,6 +87,16 @@ msbuild Modular2DEngine.sln /p:Configuration=Release /p:Platform=x64 /p:Addition
 cd game
 game.exe
 ```
+**Warning for the official SDL2 development package for MSVC**: 
+The headers in the official SDL2 development packages for MSVC are disorganized, so they require these changes assuming you extract them to "C:\SDL2-2.32.10":
+```sh
+cd "C:\SDL2-2.32.10"
+move include SDL2
+mkdir include
+move SDL2 include
+```
+Now the compiler will include the headers correctly as "`<SDL2/...>`"
+
 
 ## TODO
 

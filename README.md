@@ -87,15 +87,22 @@ msbuild Modular2DEngine.sln /p:Configuration=Release /p:Platform=x64 /p:Addition
 cd game
 game.exe
 ```
-**Warning for the official SDL2 development package for MSVC**: 
-The headers in the official SDL2 development packages for MSVC are disorganized, so they require these changes assuming you extract them to "C:\SDL2-2.32.10":
+
+## Windows-specific notes
+
+**SDL2 Runtime dependency**:
+You must have a `SDL2.dll` copy located in the same directory as the executable. For both legal and practical reasons, using the dynamic library (`.dll`) is preferred over static linking.
+
+**Official SDL2 MSVC development package layout**:
+The official SDL2 dev package for MSVC use a header layout that may not match the expected include path style `<SDL2/...>`. If you extract SDL2 to a PATH, eg. "C:\SDL2-2.32.10/", apply the following changes:
+
 ```sh
 cd "C:\SDL2-2.32.10"
 move include SDL2
 mkdir include
 move SDL2 include
 ```
-Now the compiler will include the headers correctly as "`<SDL2/...>`"
+After this adjustment, the compiler will correctly resolve headers using `#include <SDL2/...>`.
 
 
 ## TODO
